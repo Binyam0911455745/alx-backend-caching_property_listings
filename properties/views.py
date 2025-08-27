@@ -1,5 +1,3 @@
-#from django.shortcuts import render
-
 from django.shortcuts import render
 from django.core.cache import cache
 from django.views.decorators.cache import cache_page
@@ -10,4 +8,4 @@ from django.http import JsonResponse
 def property_list(request):
     properties = Property.objects.all()
     data = list(properties.values())
-    return JsonResponse(data, safe=False)
+    return JsonResponse({"properties": data})
